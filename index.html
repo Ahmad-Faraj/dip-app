@@ -85,6 +85,21 @@
           <div class="preview-box" id="jpeg-output">Compression result will appear here</div>
         </div>
       </div>
+
+      <div id="jpeg-metrics" class="metrics" style="display: none;">
+        <div class="metric-card">
+          <p class="metric-label">Original Size</p>
+          <p class="metric-value" id="original-size">--</p>
+        </div>
+        <div class="metric-card">
+          <p class="metric-label">Compressed Size</p>
+          <p class="metric-value" id="compressed-size">--</p>
+        </div>
+        <div class="metric-card">
+          <p class="metric-label">Compression Ratio</p>
+          <p class="metric-value" id="compression-ratio">--</p>
+        </div>
+      </div>
     </section>
 
     <section id="noise" class="view">
@@ -110,8 +125,6 @@
             <select id="filter-type">
               <option>Median Filter</option>
               <option>Average Filter</option>
-              <option>Min-Max Filter</option>
-              <option>Gaussian Filter</option>
             </select>
           </div>
           <div class="field">
