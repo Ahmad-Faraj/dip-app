@@ -27,6 +27,19 @@ python -m http.server 8000
 
 3. Open http://localhost:8000
 
+## Screenshots
+
+### Home Page
+<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/31e4a29f-1357-4f6d-b50f-2a03883c9d5f" />
+
+### JPEG Compression
+<img width="1579" height="886" alt="image" src="https://github.com/user-attachments/assets/438cee09-b3cc-4a27-bb4f-3300eeca3007" />
+
+### Noise Reduction
+<img width="1596" height="899" alt="image" src="https://github.com/user-attachments/assets/43bfef2f-f433-4cf5-8d5e-c6cd275fb8fc" />
+
+
+
 ## Algorithms
 
 - `JPEG_Compression.py` - DCT-based JPEG compression
