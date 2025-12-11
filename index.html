@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Image Processing Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">DIP Lab</div>
+    <nav class="nav">
+      <button class="nav-btn" data-target="home">Home</button>
+      <button class="nav-btn" data-target="jpeg">JPEG Compression</button>
+      <button class="nav-btn" data-target="noise">Noise Reduction</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="view active">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Advanced Image Processing</p>
+          <h1>Digital Image Processing Lab</h1>
+          <p class="lede">A DIP toolkit focused on Noise Reduction and JPEG Compression</p>
+          <div class="actions">
+            <button class="primary nav-btn" data-target="jpeg">Compress Images</button>
+            <button class="secondary nav-btn" data-target="noise">Reduce Noise</button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p style="color: #0b7f3a; font-weight: 600; margin: 0;">Fast. Reliable. Accurate.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-header">
+            <span class="pill">Compression</span>
+            <h3>JPEG Compression</h3>
+          </div>
+          <p>Compress your images with minimal quality loss. Compare original vs. compressed side-by-side with detailed metrics.</p>
+          <button class="ghost nav-btn" data-target="jpeg">Start Compressing</button>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <span class="pill pill-quiet">Filtering</span>
+            <h3>Noise Reduction</h3>
+          </div>
+          <p>Remove noise from your images using advanced filters. Choose between Median, Average, Min-Max, or Gaussian methods.</p>
+          <button class="ghost nav-btn" data-target="noise">Start Filtering</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="jpeg" class="view">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">JPEG Compression</p>
+          <h2>Compress Your Images</h2>
+          <p class="hint">Upload an image, run compression, and compare file sizes and quality metrics instantly.</p>
+        </div>
+        <button class="ghost nav-btn" data-target="home">Back to Home</button>
+      </div>
+
+      <div class="panel">
+        <div class="field">
+          <label for="jpeg-file">Select image</label>
+          <input type="file" id="jpeg-file" accept="image/*" />
+          <p class="hint">Supports PNG, JPG, and other common image formats.</p>
+        </div>
+        <div class="actions">
+          <button class="primary" id="jpeg-run" disabled>Compress</button>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="preview">
+          <p class="label">Original</p>
+          <div class="preview-box" id="jpeg-original">Upload an image to see preview</div>
+        </div>
+        <div class="preview">
+          <p class="label">Compressed</p>
+          <div class="preview-box" id="jpeg-output">Compression result will appear here</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="noise" class="view">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Noise Reduction</p>
+          <h2>Filter & Enhance Your Images</h2>
+          <p class="hint">Apply advanced filters to remove noise and enhance image quality. Preview results before processing.</p>
+        </div>
+        <button class="ghost nav-btn" data-target="home">Back to Home</button>
+      </div>
+
+      <div class="panel">
+        <div class="field">
+          <label for="noise-file">Select image</label>
+          <input type="file" id="noise-file" accept="image/*" />
+          <p class="hint">Choose an image to filter and enhance.</p>
+        </div>
+
+        <div class="controls">
+          <div class="field">
+            <label for="filter-type">Filter Type</label>
+            <select id="filter-type">
+              <option>Median Filter</option>
+              <option>Average Filter</option>
+              <option>Min-Max Filter</option>
+              <option>Gaussian Filter</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="intensity">Filter Strength (1-15)</label>
+            <input type="number" id="intensity" min="1" max="15" value="3" />
+          </div>
+          <div class="field">
+            <label for="method">Edge Handling</label>
+            <select id="method">
+              <option>Padding</option>
+              <option>Reflect</option>
+              <option>Edge</option>
+              <option>Symmetric</option>
+              <option>Crop</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="noise-run" disabled>Apply Filter</button>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="preview">
+          <p class="label">Original</p>
+          <div class="preview-box" id="noise-original">Upload an image to see preview</div>
+        </div>
+        <div class="preview">
+          <p class="label">Filtered Result</p>
+          <div class="preview-box" id="noise-output">Filtered image will appear here</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
