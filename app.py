@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from JPEG_Compression import Compressor
 from Median_Filter import MedianFilter
 from Average_Filter import AverageFilter
+from Gauss_Filter import GaussFilter
+from MinMax_Filter import MinMaxFilter
 from PIL import Image
 import numpy as np
 import io
@@ -96,6 +98,22 @@ def filter_image():
             img_array = np.array(Image.open(tmp_path))
             filtered = af.average_filter_custom(
                 img_array, size=kernel_size, method=method
+            )
+        elif filter_type == "Gauss Filter":
+            gf = GaussFilter(tmp_path)
+            img_array = np.array(Image.open(tmp_path))
+            # optional sigma can be passed via form 'sigma'
+            sigma_val = request.form.get("sigma")
+            sigma = float(sigma_val) if sigma_val is not None else None
+            filtered = gf.gauss_filter_custom(
+                img_array, size=kernel_size, method=method, sigma=sigma
+            )
+        elif filter_type == "Min-Max Filter":
+            mm = MinMaxFilter(tmp_path)
+            img_array = np.array(Image.open(tmp_path))
+            mode = request.form.get("mode", "min").lower()
+            filtered = mm.min_max_filter_custom(
+                img_array, size=kernel_size, mode=mode, method=method
             )
         else:
             os.unlink(tmp_path)
